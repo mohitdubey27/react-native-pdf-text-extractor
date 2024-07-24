@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-pdf-text-extractor';
+import { extractContent } from 'react-native-pdf-text-extractor';
 
 export default function App() {
-  const [result, setResult] = useState<number | undefined>();
+  const [result, setResult] = useState<string | undefined>();
 
   useEffect(() => {
-    multiply(3, 7).then(setResult);
+    extractContent('./assets/sample.txt').then(setResult);
   }, []);
 
   return (

@@ -6,8 +6,8 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-const PdfTextExtractor = NativeModules.PdfTextExtractor
-  ? NativeModules.PdfTextExtractor
+const PdfTextExtractor = NativeModules?.PdfTextExtractor
+  ? NativeModules?.PdfTextExtractor
   : new Proxy(
       {},
       {
@@ -17,6 +17,6 @@ const PdfTextExtractor = NativeModules.PdfTextExtractor
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return PdfTextExtractor.multiply(a, b);
+export function extractContent(filePath: string): Promise<string> {
+  return PdfTextExtractor.extractContent(filePath);
 }
